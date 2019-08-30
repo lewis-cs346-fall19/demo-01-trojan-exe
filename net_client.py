@@ -15,7 +15,7 @@ class Client:
         for i in range(10):
             msg = "this is message " + str(i)
             self._sock.sendall(msg.encode())
-            get = self._sock.recv(1024)
+            get = self._sock.recv(1024).decode()
             print(get)
 
 
