@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 Sun up east
 Bell rings loud
 I am hungary
+=======
+!!!nonthing here!!!
+>>>>>>> b7a2bb640213690c82be84244bb58c56c414dd67
