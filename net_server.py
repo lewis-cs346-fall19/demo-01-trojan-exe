@@ -7,7 +7,7 @@ class Sock:
 
     def binding_port(self):
         port = 31462
-        addr = ("0.0.0.0", port)
+        addr = ("10.134.132.190", port)
         self._sock.bind(addr)
         return port
 
