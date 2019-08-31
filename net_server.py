@@ -10,7 +10,7 @@ class Sock:
         self._sock.bind(self._addr)
 
     def listening_accepting(self):
-        self._sock.listen()
+        self._sock.listen(31462)
         while True:
             connectedSock = Sock()
             connectedSock = self._sock.accept()
