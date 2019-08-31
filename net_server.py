@@ -16,7 +16,7 @@ class Sock:
             connectedSock = self._sock.accept()
             self.receiving_data(connectedSock)
             self.change_msg()
-            self.sending()
+            self.sending(connectedSock)
 
     def receiving_data(self, connectedSock):
         try:
@@ -29,9 +29,9 @@ class Sock:
         new_msg = self.receiving_data()[::-1]
         return new_msg
 
-    def sending(self):
+    def sending(self,connectedSock):
         msg = self.change_msg()
-        self._sock.sendall(msg.encode())
+        connectedSock.sendall(msg.encode())
 
 
 def main():
