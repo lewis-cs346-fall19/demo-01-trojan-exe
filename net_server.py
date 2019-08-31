@@ -22,7 +22,7 @@ class Sock:
         try:
             msg = connectedSock.recv(1024).decode()
         except ConnectionAbortedError:
-            self._sock.close()
+            connectedSock.close()
         return str(msg)
 
     def change_msg(self):
