@@ -1,6 +1,5 @@
 import socket
 
-
 class Sock:
     def __init__(self):
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -10,7 +9,7 @@ class Sock:
         self._sock.bind(self._addr)
 
     def listening_accepting(self):
-        self._sock.listen(31462)
+        self._sock.listen(5)
         while True:
             connectedSock = Sock()
             connectedSock = self._sock.accept()
@@ -22,6 +21,7 @@ class Sock:
         try:
             msg = connectedSock.recv(1024).decode()
         except ConnectionAbortedError:
+            print("connection error.")
             connectedSock.close()
         return str(msg)
 
