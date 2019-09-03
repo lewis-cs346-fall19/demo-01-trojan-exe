@@ -11,9 +11,8 @@ class Sock:
     def listening_accepting(self):
         self._sock.listen(5)
         while True:
-            connectedSock = Sock()
             (connectedSock, clientAddress) = self._sock.accept()
-            self.receiving_data(connectedSock)
+            self.receiving_data(connectedSock, clientAddress)
             self.change_msg()
             self.sending(connectedSock)
 
