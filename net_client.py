@@ -7,7 +7,7 @@ class Client:
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def connection(self):
-        host = "localhost"
+        host = "lectura.cs.arizona.edu"
         addr = (host, 31462)
         self._sock.connect(addr)
 
