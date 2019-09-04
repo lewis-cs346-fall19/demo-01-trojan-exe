@@ -4,7 +4,7 @@ import socket
 class Sock:
     def __init__(self):
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self._addr = ("lectura.cs.arizona.edu", 31462)
+        self._addr = ("0.0.0.0", 31462)
         self._msg_recv = ""
         self._msg_send = ""
 
