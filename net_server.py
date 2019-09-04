@@ -22,6 +22,7 @@ class Sock:
     def receiving_data(self, connectedSock, clientAddress):
         try:
             msg = connectedSock.recv(1024).decode()
+            address = clientAddress
             return str(msg)
         except ConnectionAbortedError:
             print("connection error.")
