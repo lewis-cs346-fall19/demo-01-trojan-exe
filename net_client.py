@@ -12,11 +12,11 @@ class Client:
         self._sock.connect(addr)
 
     def generating_data(self):
-        for i in range(10):
-            msg = "this is message " + str(i)
-            self._sock.sendall(msg.encode())
-            get = self._sock.recv(1024).decode()
-            print(get)
+        msg = input("Enter your message: ")
+        msg = str(msg)
+        self._sock.sendall(msg.encode())
+        get = self._sock.recv(1024).decode()
+        print(get)
 
 
 def main():
