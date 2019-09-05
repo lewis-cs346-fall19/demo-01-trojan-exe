@@ -15,14 +15,13 @@ class Sock:
         self._sock.listen(5)
         while True:
             (connectedSock, clientAddress) = self._sock.accept()
-            self._msg_recv = self.receiving_data(connectedSock, clientAddress)
+            self._msg_recv = self.receiving_data(connectedSock)
             self._msg_send = self.change_msg()
             self.sending(connectedSock)
 
-    def receiving_data(self, connectedSock, clientAddress):
+    def receiving_data(self, connectedSock):
         try:
             msg = connectedSock.recv(1024).decode()
-            address = clientAddress
             return str(msg)
         except ConnectionAbortedError:
             print("connection error.")
