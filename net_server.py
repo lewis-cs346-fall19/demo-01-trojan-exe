@@ -21,16 +21,19 @@ class Sock:
             if not self._msg_recv:
                 print("Connection Error")
                 connectedSock.close()
-                break
-            self._msg_send = self.change_msg()
-            self.sending(connectedSock)
+            try:
+                self._msg_send = self.change_msg()
+                self.sending(connectedSock)
+            except OSError:
+                (connectedSock, clientAddress) = self._sock.accept()
 
     def receiving_data(self, connectedSock):
         msg = connectedSock.recv(1024).decode()
-        return str(msg)
+        return msg
+
 
     def change_msg(self):
-        new_msg = "Message from server: " + str(self._msg_recv)[::-1]
+        new_msg = "Server Response: " + str(self._msg_recv)[::-1]
         return str(new_msg)
 
     def sending(self, connectedSock):
