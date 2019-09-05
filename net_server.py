@@ -1,6 +1,8 @@
 import socket
 
 
+# Author: Ian Fang, Chaoneng Quan.
+
 class Sock:
     def __init__(self):
         self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -13,22 +15,22 @@ class Sock:
 
     def listening_accepting(self):
         self._sock.listen(5)
+        (connectedSock, clientAddress) = self._sock.accept()
         while True:
-            (connectedSock, clientAddress) = self._sock.accept()
             self._msg_recv = self.receiving_data(connectedSock)
+            if not self._msg_recv:
+                print("Connection Error")
+                connectedSock.close()
+                break
             self._msg_send = self.change_msg()
             self.sending(connectedSock)
 
     def receiving_data(self, connectedSock):
-        try:
-            msg = connectedSock.recv(1024).decode()
-            return str(msg)
-        except ConnectionAbortedError:
-            print("connection error.")
-            connectedSock.close()
+        msg = connectedSock.recv(1024).decode()
+        return str(msg)
 
     def change_msg(self):
-        new_msg = str(self._msg_recv)[::-1]
+        new_msg = "Message from server: " + str(self._msg_recv)[::-1]
         return str(new_msg)
 
     def sending(self, connectedSock):

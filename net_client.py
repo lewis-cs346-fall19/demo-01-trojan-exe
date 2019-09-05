@@ -1,6 +1,8 @@
 import socket
 
 
+# Author: Ian Fang, Chaoneng Quan.
+
 class Client:
 
     def __init__(self):
