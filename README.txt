@@ -1,3 +1,3 @@
-# Team members: Chaoneng Quan, Jian Fan
+# Team members: Chaoneng Quan, Jian Fang
 
 This is a server/client tool
